@@ -20,7 +20,6 @@ const head = function(array){
 assertEqual(head([5,6,7]), 5);
 assertEqual(head([10]), 10);
 assertEqual(head(["Hello", "Lighthouse", "Labs"]), "Hello");
-assertEqual(head([]), 45);
-assertEqual(head(["Hello", "Lighthouse", "Labs"]), "Lighthouse");
-assertEqual(head([5,6,7]), 10);
+assertEqual(head([]), undefined);
+
 

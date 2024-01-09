@@ -1,4 +1,5 @@
 // FUNCTION IMPLEMENTATION
+//*****  NOTE:  I had originally done a recursive deep flatten because I didn't read the instructions properly.  Decided to keep it because it works
 const assertArraysEqual = function(actual, expected) {
   if (eqArrays(actual,expected)) {
     console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
@@ -24,7 +25,7 @@ const flatten = function(toBeFlattened) {
   if (Array.isArray(toBeFlattened)) {
     for (let value of toBeFlattened) {
       if (Array.isArray(value)) {
-        flattened = flattened.concat(value);
+        flattened = flattened.concat(flatten(value));
       } else {
         flattened.push(value);
       }
@@ -36,7 +37,7 @@ const flatten = function(toBeFlattened) {
 };
 
 assertArraysEqual(flatten([1, 2, [3, 4], 5, [6]]),[1, 2, 3, 4, 5, 6]);
-assertArraysEqual(flatten([1, 2, [3, 7, 8, 9], 5, [6]]),[1, 2, 3, 7, 8, 9, 5, 6]);
+assertArraysEqual(flatten([1, 2, [3, [7,[8,9]]], 5, [6]]),[1, 2, 3, 7, 8, 9, 5, 6]);
 assertArraysEqual(flatten([1, 2, [], 5, [6]]),[1, 2, 5, 6]);
 assertArraysEqual(flatten([[1, 2], [3, 4, 5], [6]]),[1, 2, 3, 4, 5, 6]);
 assertArraysEqual(flatten([]),[]);

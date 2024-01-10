@@ -19,14 +19,18 @@ const countLetters = function(sentence){
 
 
 // TEST CODE
-// assertEqual("Lighthouse Labs","Bootcamp");
-// assertEqual("MikeIsAwesome","MikeIsAwesome");
-// assertEqual(1,1);
-// assertEqual(10, 10.1);
-// assertEqual(10, 5);
-// assertEqual(4, "4");
+let count = countLetters("lighthouse in the house");
+assertEqual(count.l, 1);
+assertEqual(count.i, 2);
+assertEqual(count.g, 1);
+assertEqual(count.h, 4);
+assertEqual(count.t, 2);
+assertEqual(count.o, 2);
+assertEqual(count.u, 2);
+assertEqual(count.s, 2);
+assertEqual(count.e, 3);
+assertEqual(count.n, 1);
+assertEqual(count[" "], undefined);
 
-console.log(countLetters("lighthouse in the house"));
-console.log(countLetters(""));
-
-
+count = countLetters("");
+assertEqual(Object.keys(count).length,0);

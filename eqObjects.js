@@ -25,7 +25,9 @@ const eqObjects = function(object1, object2) {
   }
   for (const key in object1) {
     if (Array.isArray(object1[key])) {
-      return eqArrays(object1[key], object2[key]);
+      if (!eqArrays(object1[key], object2[key])) {
+        return false;
+      }
     } else {
       if (object2[key] !== object1[key]) {
         return false;
@@ -46,3 +48,5 @@ const shirtOneColourObject = { color: ["red"], size: "medium"};
 assertEqual(eqObjects(shirtObject, shirtOneColourObject),false);
 const shirtNoArrayObject = { color: "red", size: "medium"};
 assertEqual(eqObjects(shirtObject, shirtNoArrayObject),false);
+const shortSleeveShirtObject = { size: "medium", color: ["red", "blue"], sleevelength: "short"};
+assertEqual(eqObjects(shortSleeveShirtObject, shirtNoArrayObject),false);

@@ -1,4 +1,4 @@
-const tail = require('../tail');
+const tail = require('../index').tail;
 const assert = require('chai').assert;
 
 describe("#tail", () => {
@@ -14,8 +14,8 @@ describe("#tail", () => {
     assert.deepStrictEqual(tail([]), []);
   });
   it(`returns ["Hello", "Lighthouse", "Labs"] when given ["Hello", "Lighthouse", "Labs"]")`, () => {
-    arr = ["Hello", "Lighthouse", "Labs"];
-    tailArr = tail(arr);
+    let arr = ["Hello", "Lighthouse", "Labs"];
+    let tailArr = tail(arr);
     assert.deepStrictEqual(tailArr, ["Lighthouse", "Labs"]);
   });
 });

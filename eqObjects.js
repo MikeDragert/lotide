@@ -1,23 +1,4 @@
-// FUNCTION IMPLEMENTATION
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`🛑🛑🛑 Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
-
-const eqArrays = function(arr1, arr2) {
-  if (arr1.length !== arr2.length) {
-    return false;
-  }
-  for (let index = 0; index < arr1.length; index++) {
-    if (arr1[index] !== arr2[index]) {
-      return false;
-    }
-  }
-  return true;
-};
+const eqArrays = require("./eqArrays");
 
 const eqObjects = function(object1, object2) {
   if (Object.keys(object1).length !== Object.keys(object2).length) {
@@ -37,16 +18,4 @@ const eqObjects = function(object1, object2) {
   return true;
 };
 
-
-// TEST CODE
-const shirtObject = { color: ["red", "blue"], size: "medium"};
-const anotherSHirtObject = {size:"medium", color: ["red", "blue"]};
-assertEqual((eqObjects(shirtObject, anotherSHirtObject)), true);
-const longSleeveSHirtObject = { size: "medium", color: ["red", "blue"], sleevelength: "long"};
-assertEqual(eqObjects(shirtObject, longSleeveSHirtObject),false);
-const shirtOneColourObject = { color: ["red"], size: "medium"};
-assertEqual(eqObjects(shirtObject, shirtOneColourObject),false);
-const shirtNoArrayObject = { color: "red", size: "medium"};
-assertEqual(eqObjects(shirtObject, shirtNoArrayObject),false);
-const shortSleeveShirtObject = { size: "medium", color: ["red", "blue"], sleevelength: "short"};
-assertEqual(eqObjects(shortSleeveShirtObject, shirtNoArrayObject),false);
+module.exports = eqObjects;

@@ -1,9 +1,24 @@
-const assertEqual = require('../assertEqual');
+//const assertEqual = require('../assertEqual');
 const eqArrays = require('../eqArrays');
+const assert = require("chai").assert;
 
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3]),true);
-assertEqual(eqArrays([1, 2, 3], [3, 2, 1]),false);
-assertEqual(eqArrays(["1", "2", "3"], ["1", "2", "3"]),true);
-assertEqual(eqArrays(["1", "2", "3"], ["1", "2", 3]),false);
-assertEqual(eqArrays([], [1, 2, 3]),false);
-assertEqual(eqArrays([], []),true);
+describe("#eqArrays", () => {
+  it("should return true [1, 2, 3] and [1, 2, 3]", () => {
+    assert.equal(eqArrays([1, 2, 3], [1, 2, 3]),true);
+  });
+  it("should return false [1, 2, 3] and [3, 2, 1]", () => {
+    assert.equal(eqArrays([1, 2, 3], [3, 2, 1]),false);
+  });
+  it(`should return true ["1", "2", "3"] and ["1", "2", "3"]`, () => {
+    assert.equal(eqArrays(["1", "2", "3"], ["1", "2", "3"]),true);
+  });
+  it(`should return false ["1", "2", "3"] and ["1", "2", 3]`, () => {
+    assert.equal(eqArrays(["1", "2", "3"], ["1", "2", 3]),false);
+  });
+  it("should return false [] and [1, 2, 3]", () => {
+    assert.equal(eqArrays([], [1, 2, 3]),false);
+  });
+  it("should return true [] and []", () => {
+    assert.equal(eqArrays([], []),true);
+  });
+});

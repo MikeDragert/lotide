@@ -1,6 +1,6 @@
 //const assertObjectsEqual = require("../index").assertObjectsEqual;
 
-//no longer in use
+// these tests should techincally be here, but we aren't using this function anymore...
 // const shirtObject = { color: ["red", "blue"], size: "medium"};
 // const anotherSHirtObject = {size:"medium", color: ["red", "blue"]};
 // assertObjectsEqual(shirtObject, anotherSHirtObject);

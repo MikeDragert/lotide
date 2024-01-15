@@ -1,6 +1,6 @@
 //const assertEqual = require('../index').assertEqual;
 
-//no longer in use
+// these tests should techincally be here, but we aren't using this function anymore...
 // assertEqual("Lighthouse Labs","Bootcamp");
 // assertEqual("MikeIsAwesome","MikeIsAwesome");
 // assertEqual(1,1);

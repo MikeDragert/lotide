@@ -1,29 +1,21 @@
-const assertEqual = require('../assertEqual');
 const tail = require('../tail');
+const assert = require('chai').assert;
 
-//test case 1 - number array
-let arr = [5,6,7];
-let tailArr = tail(arr);
-assertEqual(arr.length,3);
-assertEqual(tailArr.length,2);
-assertEqual(arr[0],5);
-assertEqual(arr[1], tailArr[0]);
-assertEqual(arr[2], tailArr[1]);
-//test case 2 - 1 element array
-arr = [1];
-tailArr = tail(arr);
-assertEqual(tailArr.length, 0);
-
-//test case 3 - empty array
-arr = [];
-tailArr = tail(arr);
-assertEqual(tailArr.length, 0);
-
-//test case 4 - string array
-arr = ["Hello", "Lighthouse", "Labs"];
-tailArr = tail(arr);
-assertEqual(arr.length,3);
-assertEqual(tailArr.length,2);
-assertEqual(arr[0],"Hello");
-assertEqual(arr[1], tailArr[0]);
-assertEqual(arr[2], tailArr[1]);
+describe("#tail", () => {
+  it("returns [5, 6] for [5, 6, 7]", () => {
+    let arr = [5,6,7];
+    let tailArr = tail(arr);
+    assert.deepStrictEqual(tailArr, [6, 7]);
+  });
+  it("returns an empty array for [1]", () => {
+    assert.deepStrictEqual(tail([1]), []);
+  });
+  it("returns empty array when given an empty array", () => {
+    assert.deepStrictEqual(tail([]), []);
+  });
+  it(`returns ["Hello", "Lighthouse", "Labs"] when given ["Hello", "Lighthouse", "Labs"]")`, () => {
+    arr = ["Hello", "Lighthouse", "Labs"];
+    tailArr = tail(arr);
+    assert.deepStrictEqual(tailArr, ["Lighthouse", "Labs"]);
+  });
+});
